@@ -1,4 +1,4 @@
-size = 100;
+size = 50;
 
 row_size = size;
 col_size = size;
@@ -27,7 +27,7 @@ window.onload = () => {
     render_frame(frame);
     document.getElementById("start").addEventListener("click", () => {
         if (!on) {
-            frame_switch = setInterval(start, 300);
+            frame_switch = setInterval(start, 200);
             on = 1;
             document.getElementById('status').innerHTML = on;
         }
