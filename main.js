@@ -24,19 +24,21 @@ window.onload = () => {
     document.getElementById("frame").style.minHeight = (col_size * 12) + "px";
     document.getElementById("frame").style.width = (row_size * 12) + "px";
     document.getElementById("frame").style.height = (col_size * 12) + "px";
+    document.getElementById("frame").style.maxWidth = (row_size * 12) + "px";
+    document.getElementById("frame").style.maxHeight = (col_size * 12) + "px";
     render_frame(frame);
     document.getElementById("start").addEventListener("click", () => {
         if (!on) {
             frame_switch = setInterval(start, 200);
             on = 1;
-            document.getElementById('status').innerHTML = on;
+            update_status();
         }
     });
     document.getElementById("stop").addEventListener("click", () => {
         if (on) {
             clearInterval(frame_switch);
             on = 0;
-            document.getElementById('status').innerHTML = on;
+            update_status();
         }
     });
     document.getElementById("reset").addEventListener("click", () => {
@@ -73,7 +75,16 @@ function render_frame(arr) {
     }
     html_frame.innerHTML = div;
     document.getElementById('gen').innerHTML = generation++;
-    document.getElementById('status').innerHTML = on;
+    update_status();
+}
+
+function update_status() {
+    if (on) {
+        document.getElementById('status').innerHTML = "Running";
+    }
+    else {
+        document.getElementById('status').innerHTML = "Stopped";
+    }
 }
 
 function change_state(d) {

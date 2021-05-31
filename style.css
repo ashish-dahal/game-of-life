@@ -1,6 +1,20 @@
 #button-group{
     position: fixed;
+    display: inline;
     z-index:9999;
+    background:white;
+    margin:auto;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+button{
+    background: rgb(0, 174, 255);
+}
+
+#status, #gen{
+    background: darksalmon;
+    border:rgb(99, 99, 99);
 }
 
 #frame{
